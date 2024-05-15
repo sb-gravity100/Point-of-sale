@@ -20,10 +20,10 @@ import javax.swing.JLayeredPane;
 import javax.swing.JScrollPane;
 import javax.swing.SwingUtilities;
 import javax.swing.plaf.LayerUI;
-import org.jdesktop.animation.timing.Animator;
-import org.jdesktop.animation.timing.TimingTarget;
-import org.jdesktop.animation.timing.TimingTargetAdapter;
-import org.jdesktop.animation.timing.interpolation.PropertySetter;
+import orga.jdesktop.animation.timing.Animator;
+import orga.jdesktop.animation.timing.TimingTarget;
+import orga.jdesktop.animation.timing.TimingTargetAdapter;
+import orga.jdesktop.animation.timing.interpolation.PropertySetter;
 
 public class TableScrollButton extends JLayeredPane {
 

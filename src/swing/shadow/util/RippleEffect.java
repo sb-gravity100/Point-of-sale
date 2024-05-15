@@ -16,8 +16,8 @@ import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.SwingUtilities;
-import org.jdesktop.animation.timing.Animator;
-import org.jdesktop.animation.timing.TimingTargetAdapter;
+import orga.jdesktop.animation.timing.Animator;
+import orga.jdesktop.animation.timing.TimingTargetAdapter;
 
 public class RippleEffect {
 
