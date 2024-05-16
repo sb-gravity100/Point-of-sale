@@ -1,5 +1,6 @@
 
 import java.awt.Color;
+import java.text.SimpleDateFormat;
 import panels.RoundPanel;
 import javax.swing.table.*;
 import java.util.*;
@@ -21,7 +22,9 @@ public class POS extends javax.swing.JFrame {
     private HashMap<String, Double> products = new HashMap<String, Double>();
     private HashMap<String, String> prodNames = new HashMap<String, String>();
 
-    private String horizontalLine = " ============================================";
+    private String horizontalLine = " ============================================\n";
+    private final String title = "PAYMENT SYSTEM";
+    private SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yy hh:mm:ss");
 
 
     /**
@@ -39,6 +42,7 @@ public class POS extends javax.swing.JFrame {
             prodNames.put(names[i], ids[i]);
         }
         disableButtons();
+        titleLabel.setText(title);
 //        testData(mainTable);
     }
 
@@ -51,7 +55,7 @@ public class POS extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel9 = new javax.swing.JLabel();
+        titleLabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         roundPanel1 = new panels.RoundPanel();
         btn1 = new button.Button();
@@ -66,7 +70,7 @@ public class POS extends javax.swing.JFrame {
         roundPanel5 = new panels.RoundPanel();
         jLabel7 = new javax.swing.JLabel();
         resetBtn = new button.Button();
-        addBtn2 = new button.Button();
+        printBtn = new button.Button();
         jScrollPane1 = new javax.swing.JScrollPane();
         receipt = new javax.swing.JTextArea();
         roundPanel6 = new panels.RoundPanel();
@@ -88,14 +92,16 @@ public class POS extends javax.swing.JFrame {
         payNotif = new javax.swing.JLabel();
         Pay = new button.Button();
         payField = new textfield.TextField();
+        payChange = new textfield.TextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 153, 153));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
 
-        jLabel9.setFont(new java.awt.Font("Oswald", 0, 36)); // NOI18N
-        jLabel9.setText("Insert name here...");
+        titleLabel.setFont(new java.awt.Font("Oswald", 0, 36)); // NOI18N
+        titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titleLabel.setText("Insert name here...");
 
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -195,7 +201,7 @@ public class POS extends javax.swing.JFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, true, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -262,12 +268,17 @@ public class POS extends javax.swing.JFrame {
             }
         });
 
-        addBtn2.setBackground(new java.awt.Color(146, 255, 253));
-        addBtn2.setText("Print");
-        addBtn2.setEnabled(false);
-        addBtn2.setFont(new java.awt.Font("JetBrains Mono", 1, 18)); // NOI18N
-        addBtn2.setRippleColor(new java.awt.Color(0, 153, 153));
-        addBtn2.setRound(15);
+        printBtn.setBackground(new java.awt.Color(146, 255, 253));
+        printBtn.setText("Print");
+        printBtn.setEnabled(false);
+        printBtn.setFont(new java.awt.Font("JetBrains Mono", 1, 18)); // NOI18N
+        printBtn.setRippleColor(new java.awt.Color(0, 153, 153));
+        printBtn.setRound(15);
+        printBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                printBtnActionPerformed(evt);
+            }
+        });
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -279,7 +290,6 @@ public class POS extends javax.swing.JFrame {
         receipt.setForeground(new java.awt.Color(0, 0, 0));
         receipt.setRows(5);
         receipt.setTabSize(4);
-        receipt.setText(" ============================================");
         receipt.setDragEnabled(true);
         jScrollPane1.setViewportView(receipt);
 
@@ -297,7 +307,7 @@ public class POS extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(resetBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(addBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(printBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 343, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -308,7 +318,7 @@ public class POS extends javax.swing.JFrame {
                 .addGroup(roundPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(roundPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(resetBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(addBtn2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(printBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(roundPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -468,7 +478,7 @@ public class POS extends javax.swing.JFrame {
         payNotif.setFont(new java.awt.Font("JetBrains Mono", 0, 18)); // NOI18N
         payNotif.setForeground(new java.awt.Color(153, 153, 153));
         payNotif.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        payNotif.setText("Cash");
+        payNotif.setText("Change");
 
         Pay.setBackground(new java.awt.Color(146, 255, 253));
         Pay.setText("Pay");
@@ -488,9 +498,27 @@ public class POS extends javax.swing.JFrame {
         payField.setFont(new java.awt.Font("HelveticaNeueLT Std", 1, 24)); // NOI18N
         payField.setRound(15);
         payField.setShadowColor(new java.awt.Color(102, 102, 102));
+        payField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                payFieldFocusLost(evt);
+            }
+        });
         payField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 payFieldKeyTyped(evt);
+            }
+        });
+
+        payChange.setEditable(false);
+        payChange.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        payChange.setText("0");
+        payChange.setToolTipText("Price");
+        payChange.setFont(new java.awt.Font("HelveticaNeueLT Std", 1, 24)); // NOI18N
+        payChange.setRound(15);
+        payChange.setShadowColor(new java.awt.Color(102, 102, 102));
+        payChange.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                payChangeKeyTyped(evt);
             }
         });
 
@@ -499,51 +527,44 @@ public class POS extends javax.swing.JFrame {
         roundPanel6Layout.setHorizontalGroup(
             roundPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(roundPanel6Layout.createSequentialGroup()
-                .addGroup(roundPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundPanel6Layout.createSequentialGroup()
-                        .addGap(236, 236, 236)
-                        .addComponent(payNotif)
-                        .addGap(14, 14, 14))
-                    .addGroup(roundPanel6Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(roundPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(productField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(Pay, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(addBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(roundPanel6Layout.createSequentialGroup()
-                                    .addComponent(jLabel5)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(totalField, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, roundPanel6Layout.createSequentialGroup()
-                                    .addGroup(roundPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(roundPanel6Layout.createSequentialGroup()
-                                            .addComponent(fiftyQtyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(hundredQtyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(clearQty, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(roundPanel6Layout.createSequentialGroup()
-                                            .addGroup(roundPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel1)
-                                                .addComponent(jLabel2))
-                                            .addGap(17, 17, 17)
-                                            .addGroup(roundPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(priceField, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(qtyField, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGap(0, 0, Short.MAX_VALUE))
-                                .addComponent(payField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap())
-            .addGroup(roundPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(oneQtyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(twoQtyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(fiveQtyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(twentyQtyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(roundPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(productField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Pay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(addBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundPanel6Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(totalField, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(payField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(roundPanel6Layout.createSequentialGroup()
+                        .addGroup(roundPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(roundPanel6Layout.createSequentialGroup()
+                                .addComponent(fiftyQtyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(hundredQtyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(clearQty, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(roundPanel6Layout.createSequentialGroup()
+                                .addGroup(roundPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2))
+                                .addGap(17, 17, 17)
+                                .addGroup(roundPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(priceField, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(qtyField, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(roundPanel6Layout.createSequentialGroup()
+                                .addComponent(oneQtyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(twoQtyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(fiveQtyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(twentyQtyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 6, Short.MAX_VALUE))
+                    .addComponent(payNotif, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(payChange, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         roundPanel6Layout.setVerticalGroup(
             roundPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -574,8 +595,10 @@ public class POS extends javax.swing.JFrame {
                     .addComponent(totalField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(payNotif)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(payChange, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(payField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -588,24 +611,24 @@ public class POS extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 562, Short.MAX_VALUE)
-                    .addComponent(roundPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 562, Short.MAX_VALUE)
+                            .addComponent(roundPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                         .addComponent(roundPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(roundPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 707, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -618,7 +641,7 @@ public class POS extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(roundPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(roundPanel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 6, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -626,14 +649,27 @@ public class POS extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void PayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PayActionPerformed
-        Double cash = Double.parseDouble(payField.getText());
+        Double cash = Double.valueOf(payField.getText());
+        Double total = Double.valueOf(finalTotal.getText());
+        if (cash >= total) {
+            payNotif.setText("Change");
+            payNotif.setForeground(Color.GRAY);
+            Double change = cash - total;
+            payChange.setText(String.format("%.2f", change));
+            disableButtons();
+            printBtn.setEnabled(true);
+        } else {
+            payChange.setText("0.00");
+            notifyPayment();
+        }
     }//GEN-LAST:event_PayActionPerformed
 
     private void payFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_payFieldKeyTyped
         char c = evt.getKeyChar();
 
-        if (!Character.isDigit(c))
-        evt.consume();
+        if (!Character.isDigit(c)) {
+            evt.consume();
+        }
     }//GEN-LAST:event_payFieldKeyTyped
 
     private void clearQtyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearQtyActionPerformed
@@ -727,6 +763,29 @@ public class POS extends javax.swing.JFrame {
         resetAll();
     }//GEN-LAST:event_resetBtnMousePressed
 
+    private void printBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printBtnActionPerformed
+        receipt.setText("");
+        receiptHeader();
+        printProducts();
+        printTotal();
+    }//GEN-LAST:event_printBtnActionPerformed
+
+    private void payChangeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_payChangeKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_payChangeKeyTyped
+
+    private void payFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_payFieldFocusLost
+
+       String text = payField.getText();
+       if (text.isBlank()) {
+           text = "0.00";
+           
+       } else {
+           payField.setText(String.format("%.2f", Double.valueOf(text)));
+       }
+       
+    }//GEN-LAST:event_payFieldFocusLost
+
     private void notifyPayment() {
         payNotif.setText("Not enough cash.");
         payNotif.setForeground(Color.red);
@@ -769,7 +828,6 @@ public class POS extends javax.swing.JFrame {
         }
         if (flag) {
             model.addRow(data);
-            updateTotal();
         } else {
             Double current = Double.valueOf(model.getValueAt(index, 3).toString());
             int qty = Integer.parseInt(model.getValueAt(index, 2).toString());
@@ -777,7 +835,12 @@ public class POS extends javax.swing.JFrame {
             int totalQty = Integer.parseInt(data[2].toString()) + qty;
             model.setValueAt(String.valueOf(totalQty), index, 2);
             model.setValueAt(String.format("%.2f", total), index, 3);
-            updateTotal();
+        }
+        updateTotal();
+        if (!finalTotal.getText().equals("0.00")) {
+            Pay.setEnabled(true);
+        } else {
+            Pay.setEnabled(false);
         }
     }
     
@@ -803,11 +866,17 @@ public class POS extends javax.swing.JFrame {
         ((DefaultTableModel)mainTable.getModel()).setRowCount(0);
     }
     
+    private void clearCash() {
+        payField.setText("0");
+        payChange.setText("0.00");
+    }
+    
     private void resetAll() {
         receipt.setText(horizontalLine);
         finalTotal.setText("0.00");
         clear();
         clearTable();
+        clearCash();
         checkButtons();
     }
     
@@ -846,6 +915,92 @@ public class POS extends javax.swing.JFrame {
         } else {
             addBtn.setEnabled(true);
         }
+        
+        if (!finalTotal.getText().equals("0.00")) {
+            Pay.setEnabled(true);
+        } else {
+            Pay.setEnabled(false);
+        }
+    }
+    
+    private void insertLine() {
+        addText(horizontalLine + "\n");
+    }
+    private void nextLine() {
+        addText("\n");
+    }
+    private void insertTab() {
+        addText("\t");
+    }
+    
+    private void insertTab(int num) {
+        for (int i = 0; i < num; i++) {
+            addText("\t");
+        }
+    }
+    
+    private void addText(String text) {
+        receipt.setText(receipt.getText() + text);
+    }
+    
+    private void clearText() {
+        receipt.setText("");
+    }
+    
+    private void receiptHeader() {
+        Date date = new Date();
+        insertLine();
+        insertTab();
+        addText(title);
+        nextLine();
+        insertTab();
+        addText("Date: ");
+        insertTab(4);
+        addText(formatter.format(date));
+        nextLine();
+        insertTab();
+        addText("Transaction ID: ");
+        insertTab(2);
+        addText(String.valueOf(date.getTime()));
+        nextLine();
+        nextLine();
+        insertLine();
+        insertTab();
+        addText(String.format("%-14s %-5s %-8s %-8s\n", "Name", "Qty", "Price", "Total"));
+        nextLine();
+    }
+    
+    private void printProducts() {
+        DefaultTableModel model = (DefaultTableModel) mainTable.getModel();
+        for (int i = 0; i < model.getRowCount(); i++) {
+            insertTab();
+            String name = model.getValueAt(i, 0).toString();
+            int qty = Integer.parseInt(model.getValueAt(i, 2).toString());
+            Double price = Double.valueOf(model.getValueAt(i, 1).toString());
+            Double total = Double.valueOf(model.getValueAt(i, 3).toString());
+            String text = String.format("%.14s %5d %8.2f %8.2f\n", name, qty, price, total);
+            addText(text);
+        }
+    }
+    
+    private void printTotal() {
+        nextLine();
+        insertLine();
+        insertTab();
+        addText("Total:");
+        insertTab(6);
+        addText(finalTotal.getText());
+        nextLine();
+        insertTab();
+        addText("Cash:");
+        insertTab(6);
+        addText(payField.getText());
+        nextLine();
+        insertTab();
+        addText("Change:");
+        insertTab(6);
+        addText(payChange.getText());
+        nextLine();
     }
     /**
      * @param args the command line arguments
@@ -887,7 +1042,6 @@ public class POS extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private button.Button Pay;
     private button.Button addBtn;
-    private button.Button addBtn2;
     private button.Button btn1;
     private button.Button btn2;
     private button.Button btn3;
@@ -902,15 +1056,16 @@ public class POS extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable mainTable;
     private button.Button oneQtyBtn;
+    private textfield.TextField payChange;
     private textfield.TextField payField;
     private javax.swing.JLabel payNotif;
     private textfield.TextField priceField;
+    private button.Button printBtn;
     private textfield.TextField productField;
     private textfield.TextField qtyField;
     private javax.swing.JTextArea receipt;
@@ -919,6 +1074,7 @@ public class POS extends javax.swing.JFrame {
     private panels.RoundPanel roundPanel4;
     private panels.RoundPanel roundPanel5;
     private panels.RoundPanel roundPanel6;
+    private javax.swing.JLabel titleLabel;
     private textfield.TextField totalField;
     private button.Button twentyQtyBtn;
     private button.Button twoQtyBtn;
