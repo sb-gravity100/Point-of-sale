@@ -95,9 +95,10 @@ public class POS extends javax.swing.JFrame {
         payChange = new textfield.TextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("POS");
+        setAlwaysOnTop(true);
         setBackground(new java.awt.Color(255, 153, 153));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setResizable(false);
 
         titleLabel.setFont(new java.awt.Font("Oswald", 0, 36)); // NOI18N
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -184,7 +185,7 @@ public class POS extends javax.swing.JFrame {
                     .addComponent(btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn3, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(255, Short.MAX_VALUE))
+                .addContainerGap(301, Short.MAX_VALUE))
         );
 
         jScrollPane2.setViewportView(roundPanel1);
@@ -344,11 +345,16 @@ public class POS extends javax.swing.JFrame {
 
         totalField.setEditable(false);
         totalField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        totalField.setText("0");
+        totalField.setText("0.00");
         totalField.setToolTipText("Price");
         totalField.setFont(new java.awt.Font("HelveticaNeueLT Std", 1, 24)); // NOI18N
         totalField.setRound(15);
         totalField.setShadowColor(new java.awt.Color(102, 102, 102));
+        totalField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                totalFieldActionPerformed(evt);
+            }
+        });
 
         addBtn.setBackground(new java.awt.Color(146, 255, 253));
         addBtn.setText("Add");
@@ -493,7 +499,7 @@ public class POS extends javax.swing.JFrame {
         });
 
         payField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        payField.setText("0");
+        payField.setText("0.00");
         payField.setToolTipText("Price");
         payField.setFont(new java.awt.Font("HelveticaNeueLT Std", 1, 24)); // NOI18N
         payField.setRound(15);
@@ -511,7 +517,7 @@ public class POS extends javax.swing.JFrame {
 
         payChange.setEditable(false);
         payChange.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        payChange.setText("0");
+        payChange.setText("0.00");
         payChange.setToolTipText("Price");
         payChange.setFont(new java.awt.Font("HelveticaNeueLT Std", 1, 24)); // NOI18N
         payChange.setRound(15);
@@ -786,6 +792,10 @@ public class POS extends javax.swing.JFrame {
        
     }//GEN-LAST:event_payFieldFocusLost
 
+    private void totalFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_totalFieldActionPerformed
+
     private void notifyPayment() {
         payNotif.setText("Not enough cash.");
         payNotif.setForeground(Color.red);
@@ -800,7 +810,7 @@ public class POS extends javax.swing.JFrame {
         qtyField.setText("" + current);
         Double price = Double.valueOf(priceField.getText());
         Double total = price * current;
-        totalField.setText(total.toString());
+        totalField.setText(String.format("%.2f", total));
     } 
     private void pickProduct(String id) {
         String[] prod = id.split("-");
@@ -966,7 +976,7 @@ public class POS extends javax.swing.JFrame {
         nextLine();
         insertLine();
         insertTab();
-        addText(String.format("%-14s %-5s %-8s %-8s\n", "Name", "Qty", "Price", "Total"));
+        addText(String.format("%-13s %-8s %-5s   %-10s\n", "Name", "Price", "Qty", "Total"));
         nextLine();
     }
     
@@ -978,7 +988,7 @@ public class POS extends javax.swing.JFrame {
             int qty = Integer.parseInt(model.getValueAt(i, 2).toString());
             Double price = Double.valueOf(model.getValueAt(i, 1).toString());
             Double total = Double.valueOf(model.getValueAt(i, 3).toString());
-            String text = String.format("%.14s %5d %8.2f %8.2f\n", name, qty, price, total);
+            String text = String.format("%.15s %7.2f %5d %10.2f\n", name, price, qty, total);
             addText(text);
         }
     }
@@ -988,16 +998,16 @@ public class POS extends javax.swing.JFrame {
         insertLine();
         insertTab();
         addText("Total:");
-        insertTab(6);
+        insertTab(7);
         addText(finalTotal.getText());
         nextLine();
         insertTab();
         addText("Cash:");
-        insertTab(6);
+        insertTab(7);
         addText(payField.getText());
         nextLine();
         insertTab();
-        addText("Change:");
+        addText("Change:   ");
         insertTab(6);
         addText(payChange.getText());
         nextLine();
