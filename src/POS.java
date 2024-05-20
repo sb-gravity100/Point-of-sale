@@ -62,6 +62,16 @@ public class POS extends javax.swing.JFrame {
         btn2 = new button.Button();
         btn3 = new button.Button();
         btn4 = new button.Button();
+        btn5 = new button.Button();
+        btn6 = new button.Button();
+        btn7 = new button.Button();
+        btn8 = new button.Button();
+        btn9 = new button.Button();
+        btn10 = new button.Button();
+        btn11 = new button.Button();
+        btn12 = new button.Button();
+        btn13 = new button.Button();
+        btn14 = new button.Button();
         jScrollPane3 = new javax.swing.JScrollPane();
         mainTable = new javax.swing.JTable();
         roundPanel4 = new panels.RoundPanel();
@@ -110,10 +120,11 @@ public class POS extends javax.swing.JFrame {
         roundPanel1.setBackground(new java.awt.Color(244, 248, 222));
         roundPanel1.setBorderRadius(15);
 
-        btn1.setBackground(new java.awt.Color(244, 248, 222));
-        btn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/01.png"))); // NOI18N
+        btn1.setForeground(new java.awt.Color(0, 51, 255));
+        btn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Milk_Tea_135.png"))); // NOI18N
         btn1.setText("P1-Product1");
-        btn1.setRippleColor(new java.awt.Color(0, 153, 153));
+        btn1.setPreferredSize(new java.awt.Dimension(210, 150));
+        btn1.setRippleColor(new java.awt.Color(255, 255, 153));
         btn1.setRound(15);
         btn1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -127,9 +138,8 @@ public class POS extends javax.swing.JFrame {
         });
 
         btn2.setBackground(new java.awt.Color(244, 248, 222));
-        btn2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/02.png"))); // NOI18N
         btn2.setText("P2-Product2");
-        btn2.setRippleColor(new java.awt.Color(0, 153, 153));
+        btn2.setRippleColor(new java.awt.Color(255, 255, 153));
         btn2.setRound(15);
         btn2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,10 +148,9 @@ public class POS extends javax.swing.JFrame {
         });
 
         btn3.setBackground(new java.awt.Color(244, 248, 222));
-        btn3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/03.png"))); // NOI18N
         btn3.setText("P3-Product3");
         btn3.setToolTipText("");
-        btn3.setRippleColor(new java.awt.Color(0, 153, 153));
+        btn3.setRippleColor(new java.awt.Color(255, 255, 153));
         btn3.setRound(15);
         btn3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,14 +159,133 @@ public class POS extends javax.swing.JFrame {
         });
 
         btn4.setBackground(new java.awt.Color(244, 248, 222));
-        btn4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/04.png"))); // NOI18N
         btn4.setText("P4-Product4");
         btn4.setToolTipText("");
-        btn4.setRippleColor(new java.awt.Color(0, 153, 153));
+        btn4.setRippleColor(new java.awt.Color(255, 255, 153));
         btn4.setRound(15);
         btn4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn4ActionPerformed(evt);
+            }
+        });
+
+        btn5.setForeground(new java.awt.Color(0, 51, 255));
+        btn5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Milk_Tea_135.png"))); // NOI18N
+        btn5.setText("P5-Product5");
+        btn5.setPreferredSize(new java.awt.Dimension(210, 150));
+        btn5.setRippleColor(new java.awt.Color(255, 255, 153));
+        btn5.setRound(15);
+        btn5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn5ActionPerformed(evt);
+            }
+        });
+
+        btn6.setForeground(new java.awt.Color(0, 51, 255));
+        btn6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Milk_Tea_135.png"))); // NOI18N
+        btn6.setText("P1-Product1");
+        btn6.setPreferredSize(new java.awt.Dimension(210, 150));
+        btn6.setRippleColor(new java.awt.Color(255, 255, 153));
+        btn6.setRound(15);
+        btn6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn6ActionPerformed(evt);
+            }
+        });
+
+        btn7.setForeground(new java.awt.Color(0, 51, 255));
+        btn7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Milk_Tea_135.png"))); // NOI18N
+        btn7.setText("P1-Product1");
+        btn7.setPreferredSize(new java.awt.Dimension(210, 150));
+        btn7.setRippleColor(new java.awt.Color(255, 255, 153));
+        btn7.setRound(15);
+        btn7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn7ActionPerformed(evt);
+            }
+        });
+
+        btn8.setForeground(new java.awt.Color(0, 51, 255));
+        btn8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Milk_Tea_135.png"))); // NOI18N
+        btn8.setText("P1-Product1");
+        btn8.setPreferredSize(new java.awt.Dimension(210, 150));
+        btn8.setRippleColor(new java.awt.Color(255, 255, 153));
+        btn8.setRound(15);
+        btn8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn8ActionPerformed(evt);
+            }
+        });
+
+        btn9.setForeground(new java.awt.Color(0, 51, 255));
+        btn9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Milk_Tea_135.png"))); // NOI18N
+        btn9.setText("P1-Product1");
+        btn9.setPreferredSize(new java.awt.Dimension(210, 150));
+        btn9.setRippleColor(new java.awt.Color(255, 255, 153));
+        btn9.setRound(15);
+        btn9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn9ActionPerformed(evt);
+            }
+        });
+
+        btn10.setForeground(new java.awt.Color(0, 51, 255));
+        btn10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Milk_Tea_135.png"))); // NOI18N
+        btn10.setText("P1-Product1");
+        btn10.setPreferredSize(new java.awt.Dimension(210, 150));
+        btn10.setRippleColor(new java.awt.Color(255, 255, 153));
+        btn10.setRound(15);
+        btn10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn10ActionPerformed(evt);
+            }
+        });
+
+        btn11.setForeground(new java.awt.Color(0, 51, 255));
+        btn11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Milk_Tea_135.png"))); // NOI18N
+        btn11.setText("P1-Product1");
+        btn11.setPreferredSize(new java.awt.Dimension(210, 150));
+        btn11.setRippleColor(new java.awt.Color(255, 255, 153));
+        btn11.setRound(15);
+        btn11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn11ActionPerformed(evt);
+            }
+        });
+
+        btn12.setForeground(new java.awt.Color(0, 51, 255));
+        btn12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Milk_Tea_135.png"))); // NOI18N
+        btn12.setText("P1-Product1");
+        btn12.setPreferredSize(new java.awt.Dimension(210, 150));
+        btn12.setRippleColor(new java.awt.Color(255, 255, 153));
+        btn12.setRound(15);
+        btn12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn12ActionPerformed(evt);
+            }
+        });
+
+        btn13.setForeground(new java.awt.Color(0, 51, 255));
+        btn13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Milk_Tea_135.png"))); // NOI18N
+        btn13.setText("P1-Product1");
+        btn13.setPreferredSize(new java.awt.Dimension(210, 150));
+        btn13.setRippleColor(new java.awt.Color(255, 255, 153));
+        btn13.setRound(15);
+        btn13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn13ActionPerformed(evt);
+            }
+        });
+
+        btn14.setForeground(new java.awt.Color(0, 51, 255));
+        btn14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Milk_Tea_135.png"))); // NOI18N
+        btn14.setText("P1-Product1");
+        btn14.setPreferredSize(new java.awt.Dimension(210, 150));
+        btn14.setRippleColor(new java.awt.Color(255, 255, 153));
+        btn14.setRound(15);
+        btn14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn14ActionPerformed(evt);
             }
         });
 
@@ -167,25 +295,63 @@ public class POS extends javax.swing.JFrame {
             roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(roundPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn3, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(roundPanel1Layout.createSequentialGroup()
+                        .addComponent(btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(roundPanel1Layout.createSequentialGroup()
+                        .addComponent(btn5, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn7, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn8, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(roundPanel1Layout.createSequentialGroup()
+                        .addComponent(btn9, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn10, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn11, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn12, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(roundPanel1Layout.createSequentialGroup()
+                        .addComponent(btn13, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn14, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(201, Short.MAX_VALUE))
         );
         roundPanel1Layout.setVerticalGroup(
             roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(roundPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn3, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(301, Short.MAX_VALUE))
+                    .addComponent(btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn5, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn7, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn8, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn9, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn10, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn11, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn12, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn13, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn14, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jScrollPane2.setViewportView(roundPanel1);
@@ -567,10 +733,9 @@ public class POS extends javax.swing.JFrame {
                                 .addComponent(fiveQtyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(twentyQtyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 6, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(payNotif, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(payChange, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(payChange, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         roundPanel6Layout.setVerticalGroup(
             roundPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -615,15 +780,15 @@ public class POS extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 562, Short.MAX_VALUE)
-                            .addComponent(roundPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE)
+                            .addComponent(roundPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(roundPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(roundPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -637,17 +802,15 @@ public class POS extends javax.swing.JFrame {
                 .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(roundPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(roundPanel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(roundPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(roundPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(roundPanel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(roundPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -795,6 +958,66 @@ public class POS extends javax.swing.JFrame {
     private void totalFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_totalFieldActionPerformed
+
+    private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
+        JButton source = (JButton) evt.getSource();
+        String id = source.getText();
+        pickProduct(id);
+    }//GEN-LAST:event_btn5ActionPerformed
+
+    private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
+        JButton source = (JButton) evt.getSource();
+        String id = source.getText();
+        pickProduct(id);
+    }//GEN-LAST:event_btn6ActionPerformed
+
+    private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
+        JButton source = (JButton) evt.getSource();
+        String id = source.getText();
+        pickProduct(id);
+    }//GEN-LAST:event_btn7ActionPerformed
+
+    private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
+        JButton source = (JButton) evt.getSource();
+        String id = source.getText();
+        pickProduct(id);
+    }//GEN-LAST:event_btn8ActionPerformed
+
+    private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
+        JButton source = (JButton) evt.getSource();
+        String id = source.getText();
+        pickProduct(id);
+    }//GEN-LAST:event_btn9ActionPerformed
+
+    private void btn10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn10ActionPerformed
+        JButton source = (JButton) evt.getSource();
+        String id = source.getText();
+        pickProduct(id);
+    }//GEN-LAST:event_btn10ActionPerformed
+
+    private void btn11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn11ActionPerformed
+        JButton source = (JButton) evt.getSource();
+        String id = source.getText();
+        pickProduct(id);
+    }//GEN-LAST:event_btn11ActionPerformed
+
+    private void btn12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn12ActionPerformed
+        JButton source = (JButton) evt.getSource();
+        String id = source.getText();
+        pickProduct(id);
+    }//GEN-LAST:event_btn12ActionPerformed
+
+    private void btn13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn13ActionPerformed
+        JButton source = (JButton) evt.getSource();
+        String id = source.getText();
+        pickProduct(id);
+    }//GEN-LAST:event_btn13ActionPerformed
+
+    private void btn14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn14ActionPerformed
+        JButton source = (JButton) evt.getSource();
+        String id = source.getText();
+        pickProduct(id);
+    }//GEN-LAST:event_btn14ActionPerformed
 
     private void notifyPayment() {
         payNotif.setText("Not enough cash.");
@@ -1053,9 +1276,19 @@ public class POS extends javax.swing.JFrame {
     private button.Button Pay;
     private button.Button addBtn;
     private button.Button btn1;
+    private button.Button btn10;
+    private button.Button btn11;
+    private button.Button btn12;
+    private button.Button btn13;
+    private button.Button btn14;
     private button.Button btn2;
     private button.Button btn3;
     private button.Button btn4;
+    private button.Button btn5;
+    private button.Button btn6;
+    private button.Button btn7;
+    private button.Button btn8;
+    private button.Button btn9;
     private button.Button clearQty;
     private button.Button fiftyQtyBtn;
     private javax.swing.JLabel finalTotal;
