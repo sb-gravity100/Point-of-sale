@@ -1,5 +1,6 @@
 
 import java.awt.Color;
+import java.awt.Component;
 import java.text.SimpleDateFormat;
 import panels.RoundPanel;
 import javax.swing.table.*;
@@ -19,30 +20,35 @@ import table.TableCustom;
  */
 public class POS extends javax.swing.JFrame {
     
-    private HashMap<String, Double> products = new HashMap<String, Double>();
-    private HashMap<String, String> prodNames = new HashMap<String, String>();
+    private final HashMap<String, Double> products;
+    private final HashMap<String, String> prodNames;
 
-    private String horizontalLine = " ============================================\n";
+    private final String horizontalLine;
     private final String title = "PAYMENT SYSTEM";
-    private SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yy hh:mm:ss");
+    private final SimpleDateFormat formatter;
 
 
     /**
      * Creates new form POS
      */
     public POS() {
+        this.products = new HashMap<>();
+        this.formatter = new SimpleDateFormat("MM/dd/yy hh:mm:ss");
+        this.horizontalLine = " ============================================\n";
+        this.prodNames = new HashMap<>();
         initComponents();
-        getContentPane().setBackground(Color.WHITE);
+//        getContentPane().setBackground(Color.WHITE);
         TableCustom.apply(jScrollPane3, TableCustom.TableType.DEFAULT);
-        double[] prices = {15.00, 20.00, 17.50, 45.50};
-        String[] ids = {"P1", "P2", "P3", "P4"};
-        String[] names = {"Product1", "Product2", "Product3", "Product4"};
-        for (int i = 0; i < ids.length; i++) {
-            products.put(ids[i], prices[i]);
-            prodNames.put(names[i], ids[i]);
+        Component[] comps = roundPanel1.getComponents();
+        for (int i = 0; i < comps.length; i++) {
+            Double pr = (i + 1) * 10.5;
+            String[] name = ((JButton) comps[i]).getText().split("-");
+            products.put(name[0], pr);
+            prodNames.put(name[1], name[0]);
         }
         disableButtons();
         titleLabel.setText(title);
+        
 //        testData(mainTable);
     }
 
@@ -122,7 +128,8 @@ public class POS extends javax.swing.JFrame {
 
         btn1.setForeground(new java.awt.Color(0, 51, 255));
         btn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Milk_Tea_135.png"))); // NOI18N
-        btn1.setText("P1-Product1");
+        btn1.setText("P01-Product01");
+        btn1.setToolTipText("");
         btn1.setPreferredSize(new java.awt.Dimension(210, 150));
         btn1.setRippleColor(new java.awt.Color(255, 255, 153));
         btn1.setRound(15);
@@ -138,7 +145,7 @@ public class POS extends javax.swing.JFrame {
         });
 
         btn2.setBackground(new java.awt.Color(244, 248, 222));
-        btn2.setText("P2-Product2");
+        btn2.setText("P02-Product02");
         btn2.setRippleColor(new java.awt.Color(255, 255, 153));
         btn2.setRound(15);
         btn2.addActionListener(new java.awt.event.ActionListener() {
@@ -148,7 +155,7 @@ public class POS extends javax.swing.JFrame {
         });
 
         btn3.setBackground(new java.awt.Color(244, 248, 222));
-        btn3.setText("P3-Product3");
+        btn3.setText("P03-Product03");
         btn3.setToolTipText("");
         btn3.setRippleColor(new java.awt.Color(255, 255, 153));
         btn3.setRound(15);
@@ -159,7 +166,7 @@ public class POS extends javax.swing.JFrame {
         });
 
         btn4.setBackground(new java.awt.Color(244, 248, 222));
-        btn4.setText("P4-Product4");
+        btn4.setText("P04-Product04");
         btn4.setToolTipText("");
         btn4.setRippleColor(new java.awt.Color(255, 255, 153));
         btn4.setRound(15);
@@ -171,7 +178,7 @@ public class POS extends javax.swing.JFrame {
 
         btn5.setForeground(new java.awt.Color(0, 51, 255));
         btn5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Milk_Tea_135.png"))); // NOI18N
-        btn5.setText("P5-Product5");
+        btn5.setText("P05-Product05");
         btn5.setPreferredSize(new java.awt.Dimension(210, 150));
         btn5.setRippleColor(new java.awt.Color(255, 255, 153));
         btn5.setRound(15);
@@ -183,7 +190,8 @@ public class POS extends javax.swing.JFrame {
 
         btn6.setForeground(new java.awt.Color(0, 51, 255));
         btn6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Milk_Tea_135.png"))); // NOI18N
-        btn6.setText("P1-Product1");
+        btn6.setText("P06-Product06");
+        btn6.setToolTipText("");
         btn6.setPreferredSize(new java.awt.Dimension(210, 150));
         btn6.setRippleColor(new java.awt.Color(255, 255, 153));
         btn6.setRound(15);
@@ -195,7 +203,7 @@ public class POS extends javax.swing.JFrame {
 
         btn7.setForeground(new java.awt.Color(0, 51, 255));
         btn7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Milk_Tea_135.png"))); // NOI18N
-        btn7.setText("P1-Product1");
+        btn7.setText("P07-Product07");
         btn7.setPreferredSize(new java.awt.Dimension(210, 150));
         btn7.setRippleColor(new java.awt.Color(255, 255, 153));
         btn7.setRound(15);
@@ -207,7 +215,7 @@ public class POS extends javax.swing.JFrame {
 
         btn8.setForeground(new java.awt.Color(0, 51, 255));
         btn8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Milk_Tea_135.png"))); // NOI18N
-        btn8.setText("P1-Product1");
+        btn8.setText("P08-Product08");
         btn8.setPreferredSize(new java.awt.Dimension(210, 150));
         btn8.setRippleColor(new java.awt.Color(255, 255, 153));
         btn8.setRound(15);
@@ -219,7 +227,7 @@ public class POS extends javax.swing.JFrame {
 
         btn9.setForeground(new java.awt.Color(0, 51, 255));
         btn9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Milk_Tea_135.png"))); // NOI18N
-        btn9.setText("P1-Product1");
+        btn9.setText("P09-Product09");
         btn9.setPreferredSize(new java.awt.Dimension(210, 150));
         btn9.setRippleColor(new java.awt.Color(255, 255, 153));
         btn9.setRound(15);
@@ -231,7 +239,7 @@ public class POS extends javax.swing.JFrame {
 
         btn10.setForeground(new java.awt.Color(0, 51, 255));
         btn10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Milk_Tea_135.png"))); // NOI18N
-        btn10.setText("P1-Product1");
+        btn10.setText("P10-Product10");
         btn10.setPreferredSize(new java.awt.Dimension(210, 150));
         btn10.setRippleColor(new java.awt.Color(255, 255, 153));
         btn10.setRound(15);
@@ -243,7 +251,7 @@ public class POS extends javax.swing.JFrame {
 
         btn11.setForeground(new java.awt.Color(0, 51, 255));
         btn11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Milk_Tea_135.png"))); // NOI18N
-        btn11.setText("P1-Product1");
+        btn11.setText("P11-Product11");
         btn11.setPreferredSize(new java.awt.Dimension(210, 150));
         btn11.setRippleColor(new java.awt.Color(255, 255, 153));
         btn11.setRound(15);
@@ -255,7 +263,7 @@ public class POS extends javax.swing.JFrame {
 
         btn12.setForeground(new java.awt.Color(0, 51, 255));
         btn12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Milk_Tea_135.png"))); // NOI18N
-        btn12.setText("P1-Product1");
+        btn12.setText("P12-Product12");
         btn12.setPreferredSize(new java.awt.Dimension(210, 150));
         btn12.setRippleColor(new java.awt.Color(255, 255, 153));
         btn12.setRound(15);
@@ -267,7 +275,7 @@ public class POS extends javax.swing.JFrame {
 
         btn13.setForeground(new java.awt.Color(0, 51, 255));
         btn13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Milk_Tea_135.png"))); // NOI18N
-        btn13.setText("P1-Product1");
+        btn13.setText("P13-Product13");
         btn13.setPreferredSize(new java.awt.Dimension(210, 150));
         btn13.setRippleColor(new java.awt.Color(255, 255, 153));
         btn13.setRound(15);
@@ -279,7 +287,7 @@ public class POS extends javax.swing.JFrame {
 
         btn14.setForeground(new java.awt.Color(0, 51, 255));
         btn14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Milk_Tea_135.png"))); // NOI18N
-        btn14.setText("P1-Product1");
+        btn14.setText("P14-Product14");
         btn14.setPreferredSize(new java.awt.Dimension(210, 150));
         btn14.setRippleColor(new java.awt.Color(255, 255, 153));
         btn14.setRound(15);
@@ -368,7 +376,7 @@ public class POS extends javax.swing.JFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -388,11 +396,11 @@ public class POS extends javax.swing.JFrame {
         roundPanel4.setBorderRadius(15);
 
         jLabel4.setFont(new java.awt.Font("JetBrains Mono", 0, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Total:");
 
         finalTotal.setFont(new java.awt.Font("JetBrains Mono", 0, 24)); // NOI18N
-        finalTotal.setForeground(new java.awt.Color(153, 153, 153));
+        finalTotal.setForeground(new java.awt.Color(0, 0, 0));
         finalTotal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         finalTotal.setText("0.00");
 
@@ -490,8 +498,8 @@ public class POS extends javax.swing.JFrame {
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 578, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 601, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         roundPanel6.setBackground(new java.awt.Color(244, 248, 222));
@@ -782,36 +790,36 @@ public class POS extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE)
-                            .addComponent(roundPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(roundPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(roundPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE)
+                    .addComponent(roundPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(roundPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(roundPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(roundPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(roundPanel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(roundPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(roundPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(roundPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
