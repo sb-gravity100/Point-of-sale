@@ -22,9 +22,10 @@ public class POS extends javax.swing.JFrame {
     
     private final HashMap<String, Double> products;
     private final HashMap<String, String> prodNames;
+    private final HashMap<String, String> longNames;
 
     private final String horizontalLine;
-    private final String title = "PAYMENT SYSTEM";
+    private final String title = "HAPPY LEMON";
     private final SimpleDateFormat formatter;
 
 
@@ -33,21 +34,23 @@ public class POS extends javax.swing.JFrame {
      */
     public POS() {
         this.products = new HashMap<>();
-        this.formatter = new SimpleDateFormat("MM/dd/yy hh:mm:ss");
+        this.formatter = new SimpleDateFormat("MM/dd/yy hh:mm");
         this.horizontalLine = " ============================================\n";
         this.prodNames = new HashMap<>();
+        this.longNames = new HashMap<>();
         initComponents();
 //        getContentPane().setBackground(Color.WHITE);
         TableCustom.apply(jScrollPane3, TableCustom.TableType.DEFAULT);
-        Component[] comps = roundPanel1.getComponents();
-        for (int i = 0; i < comps.length; i++) {
-            Double pr = (i + 1) * 10.5;
-            String[] name = ((JButton) comps[i]).getText().split("-");
+        Component[] comps =  roundPanel1.getComponents();
+        for (Component comp : comps) {
+            String[] name = ((JButton) comp).getText().split("-");
+            String longName = ((JButton) comp).getToolTipText();
+            Double pr = Double.valueOf(name[2]);
             products.put(name[0], pr);
             prodNames.put(name[1], name[0]);
+            longNames.put(longName, name[1]);
         }
         disableButtons();
-        titleLabel.setText(title);
         
 //        testData(mainTable);
     }
@@ -61,7 +64,6 @@ public class POS extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        titleLabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         roundPanel1 = new panels.RoundPanel();
         btn1 = new button.Button();
@@ -78,6 +80,10 @@ public class POS extends javax.swing.JFrame {
         btn12 = new button.Button();
         btn13 = new button.Button();
         btn14 = new button.Button();
+        btn15 = new button.Button();
+        btn16 = new button.Button();
+        btn17 = new button.Button();
+        btn18 = new button.Button();
         jScrollPane3 = new javax.swing.JScrollPane();
         mainTable = new javax.swing.JTable();
         roundPanel4 = new panels.RoundPanel();
@@ -109,16 +115,14 @@ public class POS extends javax.swing.JFrame {
         Pay = new button.Button();
         payField = new textfield.TextField();
         payChange = new textfield.TextField();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("POS");
+        setTitle("Happy Lemon POS");
         setAlwaysOnTop(true);
         setBackground(new java.awt.Color(255, 153, 153));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-        titleLabel.setFont(new java.awt.Font("Oswald", 0, 36)); // NOI18N
-        titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titleLabel.setText("Insert name here...");
 
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -127,9 +131,9 @@ public class POS extends javax.swing.JFrame {
         roundPanel1.setBorderRadius(15);
 
         btn1.setForeground(new java.awt.Color(0, 51, 255));
-        btn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Milk_Tea_135.png"))); // NOI18N
-        btn1.setText("P01-Product01");
-        btn1.setToolTipText("");
+        btn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/c1.png"))); // NOI18N
+        btn1.setText("C1-HOTCOFFE-125");
+        btn1.setToolTipText("Hot Coffee");
         btn1.setPreferredSize(new java.awt.Dimension(210, 150));
         btn1.setRippleColor(new java.awt.Color(255, 255, 153));
         btn1.setRound(15);
@@ -144,8 +148,9 @@ public class POS extends javax.swing.JFrame {
             }
         });
 
-        btn2.setBackground(new java.awt.Color(244, 248, 222));
-        btn2.setText("P02-Product02");
+        btn2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/c2.png"))); // NOI18N
+        btn2.setText("C2-COLDBREW-135");
+        btn2.setToolTipText("Cold Brew");
         btn2.setRippleColor(new java.awt.Color(255, 255, 153));
         btn2.setRound(15);
         btn2.addActionListener(new java.awt.event.ActionListener() {
@@ -154,9 +159,9 @@ public class POS extends javax.swing.JFrame {
             }
         });
 
-        btn3.setBackground(new java.awt.Color(244, 248, 222));
-        btn3.setText("P03-Product03");
-        btn3.setToolTipText("");
+        btn3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/c3.png"))); // NOI18N
+        btn3.setText("C3-COLDMILK-155");
+        btn3.setToolTipText("Cold Brew with Milk");
         btn3.setRippleColor(new java.awt.Color(255, 255, 153));
         btn3.setRound(15);
         btn3.addActionListener(new java.awt.event.ActionListener() {
@@ -165,9 +170,9 @@ public class POS extends javax.swing.JFrame {
             }
         });
 
-        btn4.setBackground(new java.awt.Color(244, 248, 222));
-        btn4.setText("P04-Product04");
-        btn4.setToolTipText("");
+        btn4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/c4.png"))); // NOI18N
+        btn4.setText("C4-SPANLATT-165");
+        btn4.setToolTipText("Spanish Latte");
         btn4.setRippleColor(new java.awt.Color(255, 255, 153));
         btn4.setRound(15);
         btn4.addActionListener(new java.awt.event.ActionListener() {
@@ -177,8 +182,9 @@ public class POS extends javax.swing.JFrame {
         });
 
         btn5.setForeground(new java.awt.Color(0, 51, 255));
-        btn5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Milk_Tea_135.png"))); // NOI18N
-        btn5.setText("P05-Product05");
+        btn5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/m1.png"))); // NOI18N
+        btn5.setText("M1-TIGRMILK-155");
+        btn5.setToolTipText("Tiger Milk Tea");
         btn5.setPreferredSize(new java.awt.Dimension(210, 150));
         btn5.setRippleColor(new java.awt.Color(255, 255, 153));
         btn5.setRound(15);
@@ -189,9 +195,9 @@ public class POS extends javax.swing.JFrame {
         });
 
         btn6.setForeground(new java.awt.Color(0, 51, 255));
-        btn6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Milk_Tea_135.png"))); // NOI18N
-        btn6.setText("P06-Product06");
-        btn6.setToolTipText("");
+        btn6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/m2.png"))); // NOI18N
+        btn6.setText("M2-CREAMBBY-185");
+        btn6.setToolTipText("CreamBaby");
         btn6.setPreferredSize(new java.awt.Dimension(210, 150));
         btn6.setRippleColor(new java.awt.Color(255, 255, 153));
         btn6.setRound(15);
@@ -202,8 +208,9 @@ public class POS extends javax.swing.JFrame {
         });
 
         btn7.setForeground(new java.awt.Color(0, 51, 255));
-        btn7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Milk_Tea_135.png"))); // NOI18N
-        btn7.setText("P07-Product07");
+        btn7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/m3.png"))); // NOI18N
+        btn7.setText("M3-MLKTEAOG-135");
+        btn7.setToolTipText("Milk Tea OG");
         btn7.setPreferredSize(new java.awt.Dimension(210, 150));
         btn7.setRippleColor(new java.awt.Color(255, 255, 153));
         btn7.setRound(15);
@@ -214,8 +221,9 @@ public class POS extends javax.swing.JFrame {
         });
 
         btn8.setForeground(new java.awt.Color(0, 51, 255));
-        btn8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Milk_Tea_135.png"))); // NOI18N
-        btn8.setText("P08-Product08");
+        btn8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/m4.png"))); // NOI18N
+        btn8.setText("M4-PWRPUFFP-175");
+        btn8.setToolTipText("Power Puff Pearl");
         btn8.setPreferredSize(new java.awt.Dimension(210, 150));
         btn8.setRippleColor(new java.awt.Color(255, 255, 153));
         btn8.setRound(15);
@@ -226,8 +234,9 @@ public class POS extends javax.swing.JFrame {
         });
 
         btn9.setForeground(new java.awt.Color(0, 51, 255));
-        btn9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Milk_Tea_135.png"))); // NOI18N
-        btn9.setText("P09-Product09");
+        btn9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/t1.png"))); // NOI18N
+        btn9.setText("T1-STRAWGRN-135");
+        btn9.setToolTipText("Strawberry Green Tea");
         btn9.setPreferredSize(new java.awt.Dimension(210, 150));
         btn9.setRippleColor(new java.awt.Color(255, 255, 153));
         btn9.setRound(15);
@@ -238,8 +247,9 @@ public class POS extends javax.swing.JFrame {
         });
 
         btn10.setForeground(new java.awt.Color(0, 51, 255));
-        btn10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Milk_Tea_135.png"))); // NOI18N
-        btn10.setText("P10-Product10");
+        btn10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/t2.png"))); // NOI18N
+        btn10.setText("T2-GRAPELEM-135");
+        btn10.setToolTipText("Iced Grapes Lemon");
         btn10.setPreferredSize(new java.awt.Dimension(210, 150));
         btn10.setRippleColor(new java.awt.Color(255, 255, 153));
         btn10.setRound(15);
@@ -250,8 +260,9 @@ public class POS extends javax.swing.JFrame {
         });
 
         btn11.setForeground(new java.awt.Color(0, 51, 255));
-        btn11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Milk_Tea_135.png"))); // NOI18N
-        btn11.setText("P11-Product11");
+        btn11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/t3.png"))); // NOI18N
+        btn11.setText("T3-LEMONSPE-135");
+        btn11.setToolTipText("Iced Lemon Special");
         btn11.setPreferredSize(new java.awt.Dimension(210, 150));
         btn11.setRippleColor(new java.awt.Color(255, 255, 153));
         btn11.setRound(15);
@@ -262,8 +273,9 @@ public class POS extends javax.swing.JFrame {
         });
 
         btn12.setForeground(new java.awt.Color(0, 51, 255));
-        btn12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Milk_Tea_135.png"))); // NOI18N
-        btn12.setText("P12-Product12");
+        btn12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/t4.png"))); // NOI18N
+        btn12.setText("T4-LEMONYAK-145");
+        btn12.setToolTipText("Ice Lemon Yakult");
         btn12.setPreferredSize(new java.awt.Dimension(210, 150));
         btn12.setRippleColor(new java.awt.Color(255, 255, 153));
         btn12.setRound(15);
@@ -274,8 +286,9 @@ public class POS extends javax.swing.JFrame {
         });
 
         btn13.setForeground(new java.awt.Color(0, 51, 255));
-        btn13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Milk_Tea_135.png"))); // NOI18N
-        btn13.setText("P13-Product13");
+        btn13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/s1.png"))); // NOI18N
+        btn13.setText("S1-3_CHEESE-125");
+        btn13.setToolTipText("Three Cheese Toastie");
         btn13.setPreferredSize(new java.awt.Dimension(210, 150));
         btn13.setRippleColor(new java.awt.Color(255, 255, 153));
         btn13.setRound(15);
@@ -286,14 +299,67 @@ public class POS extends javax.swing.JFrame {
         });
 
         btn14.setForeground(new java.awt.Color(0, 51, 255));
-        btn14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Milk_Tea_135.png"))); // NOI18N
-        btn14.setText("P14-Product14");
+        btn14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/s3.png"))); // NOI18N
+        btn14.setText("S2-CHOCROFF-135");
+        btn14.setToolTipText("Chocolate Croffle");
         btn14.setPreferredSize(new java.awt.Dimension(210, 150));
         btn14.setRippleColor(new java.awt.Color(255, 255, 153));
         btn14.setRound(15);
         btn14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn14ActionPerformed(evt);
+            }
+        });
+
+        btn15.setForeground(new java.awt.Color(0, 51, 255));
+        btn15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/s3 (1).png"))); // NOI18N
+        btn15.setText("S3-KOUGCROF-125");
+        btn15.setToolTipText("Kouign Amann Croffle");
+        btn15.setPreferredSize(new java.awt.Dimension(210, 150));
+        btn15.setRippleColor(new java.awt.Color(255, 255, 153));
+        btn15.setRound(15);
+        btn15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn15ActionPerformed(evt);
+            }
+        });
+
+        btn16.setForeground(new java.awt.Color(0, 51, 255));
+        btn16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/s4.png"))); // NOI18N
+        btn16.setText("S4-CROFFEOG-105");
+        btn16.setToolTipText("Croffle OG");
+        btn16.setPreferredSize(new java.awt.Dimension(210, 150));
+        btn16.setRippleColor(new java.awt.Color(255, 255, 153));
+        btn16.setRound(15);
+        btn16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn16ActionPerformed(evt);
+            }
+        });
+
+        btn17.setForeground(new java.awt.Color(0, 51, 255));
+        btn17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/s5.png"))); // NOI18N
+        btn17.setText("S5-ORECHEES-140");
+        btn17.setToolTipText("Oreo Cheese");
+        btn17.setPreferredSize(new java.awt.Dimension(210, 150));
+        btn17.setRippleColor(new java.awt.Color(255, 255, 153));
+        btn17.setRound(15);
+        btn17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn17ActionPerformed(evt);
+            }
+        });
+
+        btn18.setForeground(new java.awt.Color(0, 51, 255));
+        btn18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/s6.png"))); // NOI18N
+        btn18.setText("S6-ORETOAST-105");
+        btn18.setToolTipText("Oreo Toastie");
+        btn18.setPreferredSize(new java.awt.Dimension(210, 150));
+        btn18.setRippleColor(new java.awt.Color(255, 255, 153));
+        btn18.setRound(15);
+        btn18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn18ActionPerformed(evt);
             }
         });
 
@@ -331,8 +397,16 @@ public class POS extends javax.swing.JFrame {
                     .addGroup(roundPanel1Layout.createSequentialGroup()
                         .addComponent(btn13, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn14, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(201, Short.MAX_VALUE))
+                        .addComponent(btn14, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn15, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn16, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(roundPanel1Layout.createSequentialGroup()
+                        .addComponent(btn17, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn18, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(185, Short.MAX_VALUE))
         );
         roundPanel1Layout.setVerticalGroup(
             roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -358,8 +432,14 @@ public class POS extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn13, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn14, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btn14, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn15, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn16, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn17, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn18, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         jScrollPane2.setViewportView(roundPanel1);
@@ -559,7 +639,7 @@ public class POS extends javax.swing.JFrame {
         productField.setShadowColor(new java.awt.Color(102, 102, 102));
 
         clearQty.setBackground(new java.awt.Color(146, 255, 253));
-        clearQty.setText("<");
+        clearQty.setText("C");
         clearQty.setEnabled(false);
         clearQty.setFont(new java.awt.Font("JetBrains Mono", 1, 24)); // NOI18N
         clearQty.setRippleColor(new java.awt.Color(0, 153, 153));
@@ -784,17 +864,34 @@ public class POS extends javax.swing.JFrame {
                 .addComponent(Pay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo/logo1.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE)
-                    .addComponent(roundPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3)
+                    .addComponent(roundPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 1, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(roundPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -803,23 +900,20 @@ public class POS extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(roundPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(roundPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(roundPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(roundPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(roundPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -856,11 +950,9 @@ public class POS extends javax.swing.JFrame {
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_addBtnActionPerformed
-
-    private void addBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addBtnMouseClicked
-        String name = productField.getText();
-        if (!name.isEmpty()) {
+        String longName = productField.getText();
+        if (!longName.isEmpty()) {
+            String name = longNames.get(longName);
             String id = prodNames.get(name);
             String price = priceField.getText();
             String qty = qtyField.getText();
@@ -869,6 +961,10 @@ public class POS extends javax.swing.JFrame {
             addData(data);
             clear();
         }
+    }//GEN-LAST:event_addBtnActionPerformed
+
+    private void addBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addBtnMouseClicked
+        
     }//GEN-LAST:event_addBtnMouseClicked
 
     private void hundredQtyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hundredQtyBtnActionPerformed
@@ -910,26 +1006,30 @@ public class POS extends javax.swing.JFrame {
     private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
         JButton source = (JButton) evt.getSource();
         String id = source.getText();
-        pickProduct(id);
+        String name = source.getToolTipText();
+        pickProduct(id, name);
     }//GEN-LAST:event_btn4ActionPerformed
 
     private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
         JButton source = (JButton) evt.getSource();
         String id = source.getText();
-        pickProduct(id);
+        String name = source.getToolTipText();
+        pickProduct(id, name);
     }//GEN-LAST:event_btn3ActionPerformed
 
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
         JButton source = (JButton) evt.getSource();
         String id = source.getText();
-        pickProduct(id);
+        String name = source.getToolTipText();
+        pickProduct(id, name);
     }//GEN-LAST:event_btn2ActionPerformed
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
         // TODO add your handling code here:
         JButton source = (JButton) evt.getSource();
         String id = source.getText();
-        pickProduct(id);
+        String name = source.getToolTipText();
+        pickProduct(id, name);
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn1MouseClicked
@@ -970,62 +1070,104 @@ public class POS extends javax.swing.JFrame {
     private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
         JButton source = (JButton) evt.getSource();
         String id = source.getText();
-        pickProduct(id);
+        String name = source.getToolTipText();
+        pickProduct(id, name);
     }//GEN-LAST:event_btn5ActionPerformed
 
     private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
         JButton source = (JButton) evt.getSource();
         String id = source.getText();
-        pickProduct(id);
+        String name = source.getToolTipText();
+        pickProduct(id, name);
     }//GEN-LAST:event_btn6ActionPerformed
 
     private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
         JButton source = (JButton) evt.getSource();
         String id = source.getText();
-        pickProduct(id);
+        String name = source.getToolTipText();
+        pickProduct(id, name);
     }//GEN-LAST:event_btn7ActionPerformed
 
     private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
         JButton source = (JButton) evt.getSource();
         String id = source.getText();
-        pickProduct(id);
+        String name = source.getToolTipText();
+        pickProduct(id, name);
     }//GEN-LAST:event_btn8ActionPerformed
 
     private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
         JButton source = (JButton) evt.getSource();
         String id = source.getText();
-        pickProduct(id);
+        String name = source.getToolTipText();
+        pickProduct(id, name);
     }//GEN-LAST:event_btn9ActionPerformed
 
     private void btn10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn10ActionPerformed
         JButton source = (JButton) evt.getSource();
         String id = source.getText();
-        pickProduct(id);
+        String name = source.getToolTipText();
+        pickProduct(id, name);
     }//GEN-LAST:event_btn10ActionPerformed
 
     private void btn11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn11ActionPerformed
         JButton source = (JButton) evt.getSource();
         String id = source.getText();
-        pickProduct(id);
+        String name = source.getToolTipText();
+        pickProduct(id, name);
     }//GEN-LAST:event_btn11ActionPerformed
 
     private void btn12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn12ActionPerformed
         JButton source = (JButton) evt.getSource();
         String id = source.getText();
-        pickProduct(id);
+        String name = source.getToolTipText();
+        pickProduct(id, name);
     }//GEN-LAST:event_btn12ActionPerformed
 
     private void btn13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn13ActionPerformed
         JButton source = (JButton) evt.getSource();
         String id = source.getText();
-        pickProduct(id);
+        String name = source.getToolTipText();
+        pickProduct(id, name);
     }//GEN-LAST:event_btn13ActionPerformed
 
     private void btn14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn14ActionPerformed
         JButton source = (JButton) evt.getSource();
         String id = source.getText();
-        pickProduct(id);
+        String name = source.getToolTipText();
+        pickProduct(id, name);
     }//GEN-LAST:event_btn14ActionPerformed
+
+    private void btn15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn15ActionPerformed
+        // TODO add your handling code here:
+        JButton source = (JButton) evt.getSource();
+        String id = source.getText();
+        String name = source.getToolTipText();
+        pickProduct(id, name);
+    }//GEN-LAST:event_btn15ActionPerformed
+
+    private void btn16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn16ActionPerformed
+        // TODO add your handling code here:
+        JButton source = (JButton) evt.getSource();
+        String id = source.getText();
+        String name = source.getToolTipText();
+        pickProduct(id, name);
+    }//GEN-LAST:event_btn16ActionPerformed
+
+    private void btn17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn17ActionPerformed
+        // TODO add your handling code here:
+        JButton source = (JButton) evt.getSource();
+        String id = source.getText();
+        String name = source.getToolTipText();
+        pickProduct(id, name);
+    }//GEN-LAST:event_btn17ActionPerformed
+
+    private void btn18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn18ActionPerformed
+        // TODO add your handling code here:
+        JButton source = (JButton) evt.getSource();
+        String id = source.getText();
+        String name = source.getToolTipText();
+        pickProduct(id, name);
+    }//GEN-LAST:event_btn18ActionPerformed
 
     private void notifyPayment() {
         payNotif.setText("Not enough cash.");
@@ -1043,9 +1185,8 @@ public class POS extends javax.swing.JFrame {
         Double total = price * current;
         totalField.setText(String.format("%.2f", total));
     } 
-    private void pickProduct(String id) {
+    private void pickProduct(String id, String name) {
         String[] prod = id.split("-");
-        String name = prod[1];
         String key = prod[0];
         Double price = products.get(key);
         productField.setText(name);
@@ -1190,19 +1331,14 @@ public class POS extends javax.swing.JFrame {
     
     private void receiptHeader() {
         Date date = new Date();
-        insertLine();
-        insertTab();
-        addText(title);
-        nextLine();
-        insertTab();
-        addText("Date: ");
-        insertTab(4);
-        addText(formatter.format(date));
-        nextLine();
-        insertTab();
-        addText("Transaction ID: ");
-        insertTab(2);
-        addText(String.valueOf(date.getTime()));
+        String text  = "";
+        text += "\n\t";
+        text += title;
+        text += "\n\t";
+        text += String.format("%-21s %11s", "Date:", formatter.format(date));
+        text += "\n\t";
+        text += String.format("%-22s %11s", "Transaction ID:", String.valueOf(date.getTime()));
+        addText(text);
         nextLine();
         nextLine();
         insertLine();
@@ -1227,21 +1363,15 @@ public class POS extends javax.swing.JFrame {
     private void printTotal() {
         nextLine();
         insertLine();
-        insertTab();
-        addText("Total:");
-        insertTab(7);
-        addText(finalTotal.getText());
-        nextLine();
-        insertTab();
-        addText("Cash:");
-        insertTab(7);
-        addText(payField.getText());
-        nextLine();
-        insertTab();
-        addText("Change:   ");
-        insertTab(6);
-        addText(payChange.getText());
-        nextLine();
+        String text  = "";
+        text += "\n\t";
+        text += String.format("%-25s %10.2f", "Total:", Double.valueOf(finalTotal.getText()));
+        text += "\n\t";
+        text += String.format("%-25s %10.2f", "Cash:", Double.valueOf(payField.getText()));
+        text += "\n\t";
+        text += String.format("%-25s %10.2f", "Cash:", Double.valueOf(payChange.getText()));
+        text += "\n";
+        addText(text);
     }
     /**
      * @param args the command line arguments
@@ -1289,6 +1419,10 @@ public class POS extends javax.swing.JFrame {
     private button.Button btn12;
     private button.Button btn13;
     private button.Button btn14;
+    private button.Button btn15;
+    private button.Button btn16;
+    private button.Button btn17;
+    private button.Button btn18;
     private button.Button btn2;
     private button.Button btn3;
     private button.Button btn4;
@@ -1304,9 +1438,11 @@ public class POS extends javax.swing.JFrame {
     private button.Button hundredQtyBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1325,7 +1461,6 @@ public class POS extends javax.swing.JFrame {
     private panels.RoundPanel roundPanel4;
     private panels.RoundPanel roundPanel5;
     private panels.RoundPanel roundPanel6;
-    private javax.swing.JLabel titleLabel;
     private textfield.TextField totalField;
     private button.Button twentyQtyBtn;
     private button.Button twoQtyBtn;
